@@ -85,6 +85,7 @@ a{
 }
 .main{
   width:100%;
+  min-width:600px;
   float:left;
   transition:all .5s ease-in-out;
   margin-top:50px;
