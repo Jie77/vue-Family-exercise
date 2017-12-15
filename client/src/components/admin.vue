@@ -31,7 +31,7 @@
 <script>
 import store from '@/store'
 // import mainTable from './mainTable'
-import axios from '@/http'
+//import axios from '@/http'
 
 export default {
   name: 'admin',
@@ -74,7 +74,7 @@ a{
 #app{
   margin-top:0;
   height:100%;
-  overflow:hidden;
+  overflow-x:hidden;
 }
 .container{
   position: relative;
@@ -87,6 +87,7 @@ a{
   width:100%;
   float:left;
   transition:all .5s ease-in-out;
+  margin-top:50px;
 }
 .sidebar{
   box-sizing:border-box;

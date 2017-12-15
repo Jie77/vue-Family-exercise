@@ -42,7 +42,7 @@ const router = new Router({
         {
           path: 'baseinfo',
           name: 'baseInfo',
-          component: MainTable,
+          component: baseInfo,
           meta: {
             auth: true
           }
