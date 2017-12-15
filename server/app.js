@@ -58,22 +58,29 @@ app.post('/reg',function(req,res){
 app.post('/tdata',function(req,res){
     //console.log(req.body)
     user = req.body.user
-    let t = [{
-        date: '2017-12-12',
-        name: user,
-        address: '西电'
-      }, {
-        date: '2017-12-12',
-        name: user,
-        address: '西电'
-      }, {
-        date: '2017-12-12',
-        name: user,
-        address: '西电'
-      }, {
-        date: '2017-12-12',
-        name: user,
-        address: '西电'
-      }]
-    res.json(t)
+    db.query("select * from student where sno='151801106' and sname='小卢'",[],function(err,rows){
+        if (err){
+            console.log(err)
+        }else{
+            res.json(rows)
+        }
+    })
+    // let t = [{
+    //     date: '2017-12-12',
+    //     name: user,
+    //     address: '西电'
+    //   }, {
+    //     date: '2017-12-12',
+    //     name: user,
+    //     address: '西电'
+    //   }, {
+    //     date: '2017-12-12',
+    //     name: user,
+    //     address: '西电'
+    //   }, {
+    //     date: '2017-12-12',
+    //     name: user,
+    //     address: '西电'
+    //   }]
+    // res.json(t)
 })
