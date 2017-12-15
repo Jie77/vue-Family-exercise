@@ -8,7 +8,7 @@
         <el-input v-model="ruleForm.name"></el-input>
       </el-form-item>
         <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+        <el-button type="primary" @click="submitForm('ruleForm')">查询</el-button>
         <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
@@ -90,6 +90,7 @@ export default {
   width:640px;
   margin:0 auto;
   margin-top:20px;
+  margin-bottom:60px;
   box-sizing:border-box;
   font-size:14px;
   color:#606266;

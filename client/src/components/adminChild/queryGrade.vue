@@ -11,14 +11,14 @@
     </el-form>
     <p>所有科目平均成绩：{{ allAVG }}</p>
     <p>必修科目平均成绩：{{ muAVG }}</p>
-    <table class="baseinfo-infotable">
-      <tr class="baseinfo-infotable-tr">
+    <table class="querygrade-infotable">
+      <tr class="querygrade-infotable-tr">
         <th>姓名</th>
         <th>课程名</th>
         <th>成绩</th>
         <th>是否补考</th>
       </tr>
-      <tr v-for="(row,index) in tableData" class="baseinfo-infotable-tr">
+      <tr v-for="(row,index) in tableData" class="querygrade-infotable-tr">
         <td>{{ row.sname }}</td>
         <td>{{ row.cname }}</td>
         <td>{{ row.grade }}</td>
@@ -83,7 +83,7 @@ export default {
 </script>
 
 <style>
-.baseinfo-infotable{
+.querygrade-infotable{
   display:block;
   width:640px;
   margin:0 auto;
@@ -96,11 +96,11 @@ export default {
   border-right:1px solid #ebebeb;
   border-spacing: 0;
 }
-.baseinfo-infotable-tr{
+.querygrade-infotable-tr{
   display: block;
   width:800px;
 }
-.baseinfo-infotable-tr td,.baseinfo-infotable-tr th{
+.querygrade-infotable-tr td,.querygrade-infotable-tr th{
   width:160px;
   height:48px;
   line-height:48px;

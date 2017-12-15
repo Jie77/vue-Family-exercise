@@ -155,3 +155,38 @@ app.post('/querygrade',function(req,res,next){
 })
 
 
+app.post('/histeacher',function(req,res,next){
+    let sno
+    sno = req.body.sno
+    db.query("select course.teachername,course.cname,sc.grade,sc.reexam from course,sc where sc.cno=course.cno and sc.sno=?",[sno],function(err,rows){
+        if (err)  throw err;
+        if (rows.length==0){
+            res.json({
+                success: false,
+                result: null
+            })
+        }else{
+            res.json({
+                success: true,
+                result: rows
+            })
+        }
+    })
+})
+
+app.post('/dyingstu',function(req,res,next){
+    db.query("select danger1.sno,danger1.sname,danger1.mu,danger2.notmu from danger1,danger2 where danger1.sno = danger2.sno;",[],function(err,rows){
+        if (err)  throw err;
+        if (rows.length==0){
+            res.json({
+                success: false,
+                result: null
+            })
+        }else{
+            res.json({
+                success: true,
+                result: rows
+            })
+        }
+    })
+})
