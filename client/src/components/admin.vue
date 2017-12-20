@@ -2,7 +2,7 @@
   <div class="container" id="container">
     <div class="main" id="main">
       <h1>Hello {{ user }}</h1>
-      <p>Here is admin page</p>
+      <p>Click left for more</p>
       <router-view></router-view>
     </div>
     <div class="sidebar">
@@ -70,6 +70,10 @@ a{
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;
+}
+form{
+  margin:0 auto;
+  margin-top:40px;
 }
 #app{
   margin-top:0;

@@ -1,10 +1,16 @@
 <template>
-  <div class="loginbox">
-    <form action="">
-      <input type="text" placeholder="用户名" v-model='user'>
-      <input type="text" placeholder="密码" v-model='pwd'>
-      <button @click.prevent='login'>提交</button>
-    </form>
+  <div class="login-box">
+    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm" >
+      <el-form-item label="用户名" prop="user">
+        <el-input v-model="ruleForm.user"></el-input>
+      </el-form-item>
+      <el-form-item label="密码" prop="pwd">
+        <el-input v-model="ruleForm.pwd" type='password'></el-input>
+      </el-form-item>
+        <el-form-item>
+        <el-button type="primary" @click.prevent='login'>登录</el-button>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 <script>
@@ -12,11 +18,23 @@ import store from '@/store'
 import axios from '@/http'
 
 export default {
-  name: 'login',
+  pwd: 'login',
   data(){
     return {
       user: '',
-      pwd: ''
+      pwd: '',
+      ruleForm: {
+        user: '',
+        pwd: ''
+      },
+      rules: {
+          user: [
+            { required: true, message: '请输入用户名', trigger: 'blur' }
+          ],
+          pwd: [
+            { required: true, message: '请输入密码', trigger: 'blur' }
+          ]
+        }
     }
   },
   methods: {
@@ -24,15 +42,15 @@ export default {
       console.log("you click the login button")
       let params = new URLSearchParams()
       console.log(this.user)
-      params.append('user',this.user)
-      params.append('pwd',this.pwd)
+      params.append('user',this.ruleForm.user)
+      params.append('pwd',this.ruleForm.pwd)
       axios.post('http://127.0.0.1:3000/login',params)
       .then((res) => {
         console.log(res)
         if (res.data.success){
           let data = {
             token: res.data.message,
-            user: this.user
+            user: this.ruleForm.user
           }
           store.commit('login',data)
           this.$router.push({
@@ -50,30 +68,9 @@ export default {
 }
 </script>
 <style>
-*{
-    padding:0;
-    margin:0;
+.login-box{
+  width:600px;
+  margin:0 auto;
 }
-.loginbox{
-    width:220px;
-    min-width:60%;
-    border: 1px solid #666;
-    padding:10px 0;
-    margin:0 auto;
-}
-form{
-    width:200px;
-    margin:0 auto;
-}
-input{
-    display: block;
-    height: 40px;
-    width:200px;
-}
-input:first-child{
-    margin-bottom:10px;
-}
-button{
-    margin-top:10px;
-}
+
 </style>

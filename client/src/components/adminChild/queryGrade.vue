@@ -5,7 +5,7 @@
         <el-input v-model="ruleForm.sno"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+        <el-button type="primary" @click="submitForm('ruleForm')">查询</el-button>
         <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
@@ -106,5 +106,21 @@ export default {
   line-height:48px;
   border-top:1px solid #ebebeb;
   border-left:1px solid #ebebeb;
+}
+form{
+  margin-top:60px;
+  width:560px;
+  transform: translateX(-45px);
+}
+.el-select {
+    display: inline-block;
+    position: relative;
+    width:100%;
+}
+.el-col-11 {
+    width: 100%;
+}
+.el-input__icon{
+  height: 80%;
 }
 </style>

@@ -109,4 +109,20 @@ export default {
   border-top:1px solid #ebebeb;
   border-left:1px solid #ebebeb;
 }
+form{
+  margin-top:60px;
+  width:560px;
+  transform: translateX(-45px);
+}
+.el-select {
+    display: inline-block;
+    position: relative;
+    width:100%;
+}
+.el-col-11 {
+    width: 100%;
+}
+.el-input__icon{
+  height: 80%;
+}
 </style>
