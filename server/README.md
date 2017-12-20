@@ -5,6 +5,6 @@
 npm install
 
 # server running at localhost:3000
-npm run dev
+node app
 
 ```
