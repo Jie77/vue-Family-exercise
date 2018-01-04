@@ -48,6 +48,7 @@
             params.append('sno',this.ruleForm.sno)
             params.append('cno',this.ruleForm.cno)
             params.append('grade',parseInt(grade))
+            params.append('sclass',this.ruleForm.sno.slice(0,-2))
             axios.post("http://127.0.0.1:3000/recordGrade",params)
             .then((res) => {
               console.log(res)

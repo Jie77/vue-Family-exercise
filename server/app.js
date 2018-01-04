@@ -134,12 +134,12 @@ app.post('/recordGrade',function(req,res,next){
         if(err){
             res.end(err)
         }else{
-            let sno,cno,grade
+            let sno,cno,grade,sclass
             sno = req.body.sno
             cno = req.body.cno
             grade = parseInt(req.body.grade)
-            
-            db.query("insert into sc values (?,?,?,'否')",[sno,cno,grade],function(err,rows){
+            sclass = req.body.sclass
+            db.query("insert into sc values (?,?,?,'否',?)",[sno,cno,grade,sclass],function(err,rows){
                 console.log(sno+"--"+cno+"--"+grade)
                 if (err){
                     res.json({
